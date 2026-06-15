@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>❤️ Joyeux 1 An ❤️</title>
+<style>
+body{margin:0;font-family:Arial,sans-serif;background:linear-gradient(135deg,#ff5f8f,#ff9db8);overflow:hidden;}
+.page{height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:20px;color:white;}
+h1{font-size:2.8rem;}
+button{padding:16px 30px;border:none;border-radius:50px;font-size:1.1rem;font-weight:bold;cursor:pointer;}
+#gift{display:none;background:white;overflow:auto;}
+#gift img{max-width:95%;border-radius:20px;margin:20px;box-shadow:0 8px 25px rgba(0,0,0,.2);}
+.heart{position:fixed;bottom:-50px;pointer-events:none;z-index:9999;}
+</style>
+</head>
+<body>
+<div class="page" id="home">
+<h1>❤️ Joyeux 1 An Mon Amour ❤️</h1>
+<p>J'ai préparé une petite surprise pour toi 🥹</p>
+<button onclick="ouvrir()">Découvrir ma surprise ❤️</button>
+</div>
+
+<div class="page" id="gift">
+<img src="https://via.placeholder.com/800x1200.png?text=Remplace+cette+image+par+la+tienne">
+</div>
+
+<script>
+function ouvrir(){
+document.getElementById('home').style.display='none';
+document.getElementById('gift').style.display='flex';
+
+for(let i=0;i<100;i++){
+setTimeout(() => {
+let h=document.createElement('div');
+h.className='heart';
+h.innerHTML='❤️';
+h.style.left=(Math.random()*100)+'vw';
+h.style.fontSize=(18+Math.random()*30)+'px';
+document.body.appendChild(h);
+
+h.animate(
+[{transform:'translateY(0)',opacity:1},
+{transform:'translate(' + ((Math.random()-0.5)*250) + 'px,-120vh)',opacity:0}],
+{duration:3000+Math.random()*3000,easing:'linear'}
+);
+
+setTimeout(()=>h.remove(),7000);
+}, i*70);
+}
+}
+</script>
+</body>
+</html>
