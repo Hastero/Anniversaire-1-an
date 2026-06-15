@@ -57,9 +57,37 @@ to{transform:translateY(-110vh);opacity:0;}
 
 <script>
 function openGift(){
-document.getElementById('home').style.display='none';
-document.getElementById('gift').style.display='flex';
 
+    document.getElementById('home').style.display='none';
+    document.getElementById('gift').style.display='flex';
+
+    for(let i=0;i<80;i++){
+
+        setTimeout(() => {
+
+            let heart=document.createElement('div');
+
+            heart.className='heart';
+            heart.innerHTML='❤️';
+
+            heart.style.left=Math.random()*100+'vw';
+            heart.style.bottom='-50px';
+
+            heart.style.fontSize=(15+Math.random()*35)+'px';
+
+            heart.style.animationDuration=
+            (3+Math.random()*4)+'s';
+
+            document.body.appendChild(heart);
+
+            setTimeout(()=>{
+                heart.remove();
+            },7000);
+
+        }, i*120);
+
+    }
+}
 for(let i=0;i<60;i++){
 let h=document.createElement('div');
 h.className='heart';
